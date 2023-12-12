@@ -1,0 +1,6 @@
+# ignore outsourced files
+/outsource
+monty.cbp
+monty.depend
+obj
+bin
