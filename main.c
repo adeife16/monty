@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     char *line_buffer; /* Buffer to store each line of the file */
     FILE *file_descriptor; /* File descriptor */
     size_t buffer_size = 0; /* Size of the buffer for getline */
-    ssize_t bytes_read = 1; /* Number of bytes read by getline */
+    size_t bytes_read = 1; /* Number of bytes read by getline */
     data_t *stack = NULL; /* Stack to perform operations */
     unsigned int line_number = 0; /* Line number tracker */
 
