@@ -9,7 +9,8 @@
  * for a "nop" operation in the Monty language, which does no operation.
  * It takes the head pointer and line number arguments but doesn't use them.
  */
-void process_nop(data_t **head, unsigned int line_number) {
-    (void)head; /* Unused parameter */
-    (void)line_number; /* Unused parameter */
+void process_nop(data_t **head, unsigned int line_number)
+{
+  (void)head; /* Unused parameter */
+  (void)line_number; /* Unused parameter */
 }

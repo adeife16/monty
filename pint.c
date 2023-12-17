@@ -8,13 +8,15 @@
  * Description: Prints the value of the top element of the stack if
  * the stack is not empty. If the stack is empty, exits with failure.
  */
-void print_top(data_t **head, unsigned int line_number) {
-    if (*head == NULL) {
-        fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
-        fclose(state.file_descriptor);
-        free(state.line_buffer);
-        free_all_nodes(*head);
-        exit(EXIT_FAILURE);
+void print_top(data_t **head, unsigned int line_number)
+{
+  if (*head == NULL)
+    {
+      fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+      fclose(state.file_descriptor);
+      free(state.line_buffer);
+      free_all_nodes(*head);
+      exit(EXIT_FAILURE);
     }
-    printf("%d\n", (*head)->data);
+  printf("%d\n", (*head)->data);
 }

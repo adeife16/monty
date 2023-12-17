@@ -9,8 +9,9 @@
  * This function sets the mode to LIFO (stack) explicitly, but is here for
  * compatibility purposes.
  */
-void process_stack(data_t **head, unsigned int line_number) {
-    (void)head; /* Unused parameter */
-    (void)line_number; /* Unused parameter */
-    state.mode = 0;
+void process_stack(data_t **head, unsigned int line_number)
+{
+  (void)head; /* Unused parameter */
+  (void)line_number; /* Unused parameter */
+  state.mode = 0;
 }

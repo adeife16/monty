@@ -9,10 +9,11 @@
  * This function sets the mode to LIFO (stack) by default but is here for
  * compatibility purposes.
  */
-void process_queue(data_t **head, unsigned int line_number) {
-    (void)head; /* Unused parameter */
-    (void)line_number; /* Unused parameter */
-    state.mode = 1;
+void process_queue(data_t **head, unsigned int line_number)
+{
+  (void)head; /* Unused parameter */
+  (void)line_number; /* Unused parameter */
+  state.mode = 1;
 }
 
 /**
@@ -24,28 +25,33 @@ void process_queue(data_t **head, unsigned int line_number) {
  * and adds it to the end of the queue. If the queue is empty, the new node
  * becomes the head of the queue.
  */
-void add_to_queue(data_t **head, int new_value) {
-    data_t *new_node, *current_node;
+void add_to_queue(data_t **head, int new_value)
+{
+  data_t *new_node, *current_node;
+  current_node = *head;
+  new_node = malloc(sizeof(data_t));
 
-    current_node = *head;
-    new_node = malloc(sizeof(data_t));
-
-    if (!new_node) {
-        fprintf(stderr, "Error: malloc failed\n");
-        exit(EXIT_FAILURE);
+  if (!new_node)
+    {
+      fprintf(stderr, "Error: malloc failed\n");
+      exit(EXIT_FAILURE);
     }
 
-    new_node->data = new_value;
-    new_node->next = NULL;
+  new_node->data = new_value;
+  new_node->next = NULL;
 
-    if (current_node) {
-        while (current_node->next) {
-            current_node = current_node->next;
-        }
-        current_node->next = new_node;
-        new_node->previous = current_node;
-    } else {
-        *head = new_node;
-        new_node->previous = NULL;
+  if (current_node)
+    {
+      while (current_node->next)
+	{
+	  current_node = current_node->next;
+	}
+      current_node->next = new_node;
+      new_node->previous = current_node;
+    }
+  else
+    {
+      *head = new_node;
+      new_node->previous = NULL;
     }
 }

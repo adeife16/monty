@@ -9,16 +9,18 @@
  * ASCII character values. It prints characters until reaching a non-printable
  * ASCII character or the end of the stack. The line number parameter is not used.
  */
-void process_print_string(data_t **head, unsigned int line_number) {
-    data_t *current_node = *head; /* Pointer to the current node */
-    (void)line_number; /* Unused parameter */
-
-    while (current_node) {
-        if (current_node->data > 127 || current_node->data <= 0) {
-            break;
-        }
-        printf("%c", (char)current_node->data);
-        current_node = current_node->next;
+void process_print_string(data_t **head, unsigned int line_number)
+{
+  data_t *current_node = *head; /* Pointer to the current node */
+  (void)line_number; /* Unused parameter */
+  while (current_node)
+    {
+      if (current_node->data > 127 || current_node->data <= 0)
+	{
+	  break;
+	}
+      printf("%c", (char)current_node->data);
+      current_node = current_node->next;
     }
-    printf("\n");
+  printf("\n");
 }

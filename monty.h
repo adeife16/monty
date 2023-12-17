@@ -66,7 +66,7 @@ void process_push(data_t **head, unsigned int number);
 void print_all(data_t **head, unsigned int number);
 void print_top(data_t **head, unsigned int number);
 int execute(char *content, data_t **head, unsigned int counter, FILE *file);
-void free_stack(data_t *head);
+void free_all_nodes(data_t *head);
 void process_pop(data_t **head, unsigned int counter);
 void process_swap(data_t **head, unsigned int counter);
 void process_add(data_t **head, unsigned int counter);
