@@ -1,5 +1,5 @@
 #include "monty.h"
-
+#include <stdio.h>
 /* Global state variable */
 state_t state = {NULL, NULL, NULL, 0};
 
@@ -55,4 +55,46 @@ int main(int argc, char *argv[])
     fclose(file_descriptor);
 
     return (0);
+}
+
+ssize_t getline(char **lineptr, size_t *n, FILE *stream)
+{
+  if (lineptr == NULL || n == NULL || stream == NULL)
+    {
+      return (-1); /* Invalid input parameters*/
+    }
+  size_t capacity = *n;
+  size_t position = 0;
+  int c;
+  if (*lineptr == NULL)
+    {
+      /* Allocate initial buffer if lineptr is NULL or capacity is 0*/
+      capacity = 128;
+      *lineptr = (char *)malloc(capacity * sizeof(char));
+      if (*lineptr == NULL)
+	{
+	  return (-1);
+	}
+    } (
+      while ((c = fgetc(stream)) != EOF && c != '\n')
+	{
+	  (*lineptr)[position++] = (char)c;
+	  if (position + 1 >= capacity)
+	    {
+	      capacity *= 2;
+	      char *temp = (char *)realloc(*lineptr, capacity * sizeof(char));
+	      if (temp == NULL)
+		{
+		  return (-1);
+		}
+	      *lineptr = temp;
+	    }
+	}
+      if (c == EOF && position == 0)
+	{
+	  return (-1);
+	}
+      (*lineptr)[position] = '\0';
+      *n = capacity;
+      return ((ssize_t)position);
 }
